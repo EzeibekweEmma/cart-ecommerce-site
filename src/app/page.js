@@ -1,9 +1,11 @@
-import Image from 'next/image'
-
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>body here!</h1>
-    </main>
-  )
+    return (
+        <main className="">
+            <section className="flex justify-center">
+                <section className="w-[85vw] bg-slate-500">
+                    <h1 className="text-center">body here!</h1>
+                </section>
+            </section>
+        </main>
+    );
 }

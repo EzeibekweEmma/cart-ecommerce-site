@@ -1,5 +1,7 @@
-import Header from "@/components/Header";
 import "./globals.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export const metadata = {
     title: "E-commerce Site",
@@ -12,6 +14,7 @@ export default function RootLayout({ children }) {
             <body>
                 <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );

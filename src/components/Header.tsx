@@ -1,44 +1,44 @@
-import Image from "next/image";
 import React from "react";
-import Logo from "@/assets/images/logo.png";
 import {
     HiOutlineShoppingCart,
     HiOutlineHeart,
     HiOutlineSearch,
     HiOutlineUserCircle,
 } from "react-icons/hi";
+import Logo from "./common/Logo";
+import Link from "next/link";
 
 export default function Header() {
     interface style {
         div: string;
         span: string;
         icon: string;
+        number: string;
     }
     const linkStyle: style = {
-        div: "flex items-center space-x-2 p-1 text-gray-600 cursor-pointer hover:text-cPrimary/60",
-        span: "text-lg font-medium sl:flex hidden",
+        div: "flex items-center space-x-1 p-1 text-gray-600 cursor-pointer hover:text-cPrimary/60",
+        span: "text-lg font-medium sl:flex hidden pt-2",
         icon: "h-8 w-8",
+        number: "absolute top-0.5 left-[1.7rem] px-1 text-xs rounded-full\
+        bg-white font-semibold text-cPrimary",
     };
     return (
         <header className="bg-white ls:h-[4.5rem] h-[7rem] px-10 shadow-md flex flex-col justify-evenly">
             <nav className="flex justify-between items-center">
                 {/* Logo */}
-                <div className={`${linkStyle.div} flex-col`}>
-                    <Image src={Logo} alt={"Logo"} width="30" height="30" />
-                    <span className="font-bold text-cPrimary/60">CART</span>
-                </div>
+                <Logo />
                 {/* Search Bar */}
                 <form className="text-gray-600 relative hidden ls:flex flex-[0.7]">
                     <input
                         type="search"
                         placeholder="Search Products, brands and Categories"
                         className="w-full h-10 border border-gray-300 rounded-s-md
-                    px-5 focus:outline-none border-r-0"
+                    px-5 focus:outline-none border-r-0 shadow-md"
                     />
                     <button
                         type="submit"
                         className="absolute -right-10 p-[0.33rem] rounded-e-md border border-gray-300
-                    bg-cPrimary/5 hover:text-cPrimary/60"
+                    bg-cPrimary/5 hover:text-cPrimary/60 shadow-md"
                     >
                         <HiOutlineSearch className="h-7 w-7" />
                     </button>
@@ -46,26 +46,29 @@ export default function Header() {
                 </form>
                 <section className="flex justify-between items-center md:flex-[0.2]">
                     {/* Favorites */}
-                    <div className={linkStyle.div}>
-                        <HiOutlineHeart className={linkStyle.icon} />
-                        <span className={linkStyle.span}>Favorites</span>
-                    </div>
-                    {/* Cart */}
-                    <div className={`${linkStyle.div} relative`}>
+                    <Link
+                        href="favorites"
+                        className={`${linkStyle.div} relative`}
+                    >
                         <span
-                            className="absolute top-0 left-[1.9rem] px-0.5 rounded-full
-                 bg-white font-semibold text-sm text-cPrimary"
+                            className={`${linkStyle.number} left-[1.82rem] top-1`}
                         >
                             0
                         </span>
+                        <HiOutlineHeart className={linkStyle.icon} />
+                        <span className={linkStyle.span}>Favorites</span>
+                    </Link>
+                    {/* Cart */}
+                    <Link href="cart" className={`${linkStyle.div} relative`}>
+                        <span className={linkStyle.number}>0</span>
                         <HiOutlineShoppingCart className={linkStyle.icon} />
                         <span className={linkStyle.span}>Cart</span>
-                    </div>
+                    </Link>
                     {/* Account */}
-                    <div className={linkStyle.div}>
+                    <Link href="account" className={linkStyle.div}>
                         <HiOutlineUserCircle className={linkStyle.icon} />
                         <span className={linkStyle.span}>Account</span>
-                    </div>
+                    </Link>
                 </section>
             </nav>
             {/* Search Bar for mobile */}
@@ -74,12 +77,12 @@ export default function Header() {
                     type="search"
                     placeholder="Search Products, brands and Categories"
                     className="w-full h-10 border border-gray-300 rounded-s-md
-                    px-5 focus:outline-none border-r-0"
+                    px-5 focus:outline-none border-r-0 shadow-md"
                 />
                 <button
                     type="submit"
                     className="absolute -right-10 p-[0.33rem] rounded-e-md border border-gray-300
-                    bg-cPrimary/5 hover:text-cPrimary/60"
+                    bg-cPrimary/5 hover:text-cPrimary/60 shadow-md"
                 >
                     <HiOutlineSearch className="h-7 w-7" />
                 </button>

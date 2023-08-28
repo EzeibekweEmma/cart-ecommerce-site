@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export const metadata = {
-    title: "E-commerce Site",
+    title: "CART - Online Shopping Store",
     description: "Created with Next.js and Tailwind CSS By Ezeibekwe Emmanuel",
 };
 

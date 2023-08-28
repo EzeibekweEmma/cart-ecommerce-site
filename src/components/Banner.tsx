@@ -19,11 +19,12 @@ const Banner = () => {
                     return (
                         <div key={image.alt}>
                             <Image
+                                priority
                                 src={image.url}
                                 alt={image.alt}
-                                width="900"
-                                height="800"
-                                className="h-[80vh]"
+                                width="1000"
+                                height="1000"
+                                className="h-[55vh] md:h-[65vh] lg:h-[80vh]"
                             />
                         </div>
                     );

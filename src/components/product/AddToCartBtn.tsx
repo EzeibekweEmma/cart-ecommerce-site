@@ -53,16 +53,16 @@ export default function AddToCartBtn({
                 >
                     <button
                         onClick={() => removeFromCart(_id)}
-                        className={`${btnStyle} w-12 text-2xl`}
+                        className={`${btnStyle} w-9 ml:w-12 text-base font-semibold ml:text-2xl`}
                     >
                         <HiOutlineMinus />
                     </button>
-                    <span className="text-black text-lg">
+                    <span className="text-black text-base ml:text-lg">
                         {existingCartItem?.quantity}
                     </span>
                     <button
                         onClick={handleAddToCart}
-                        className={`${btnStyle} w-12 text-2xl`}
+                        className={`${btnStyle} w-9 ml:w-12 text-base font-semibold ml:text-2xl`}
                     >
                         <HiOutlinePlus />
                     </button>
@@ -70,10 +70,10 @@ export default function AddToCartBtn({
             ) : (
                 <button
                     onClick={handleAddToCart}
-                    className={`${btnStyle} text-sm space-x-2 w-full group/cart
+                    className={`${btnStyle} text-xs ml:text-sm space-x-2 w-full group/cart
                     font-semibold duration-300 md:translate-y-16 md:group-hover:translate-y-0`}
                 >
-                    <HiOutlineShoppingCart className="duration-300 w-5 h-5 stroke-2 group-hover/cart:translate-x-[6.5rem]" />
+                    <HiOutlineShoppingCart className="duration-300 w-4 ml:w-5 h-4 ml:h-5 stroke-2 group-hover/cart:translate-x-[6.5rem]" />
                     <span className="group-hover/cart:-translate-x-8 duration-300">
                         ADD TO CART
                     </span>

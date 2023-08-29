@@ -20,14 +20,14 @@ export default function Products() {
         fetchProduct();
     }, [fetchProduct]);
     const favoriteStyle =
-        "w-12 h-12 absolute bottom-1 flex right-1 border-[1px] bg-white rounded-lg\
-        text-cPrimary shadow-md items-center justify-center text-2xl hover:bg-cPrimary/10";
+        "w-9 ml:w-12 h-9 ml:h-12 absolute bottom-1 flex right-1 border-[1px] bg-white rounded-lg\
+        text-cPrimary shadow-md items-center justify-center text-lg ml:text-2xl hover:bg-cPrimary/10";
 
     return (
         <section className="flex justify-center">
             <div
-                className="md:w-[90vw] grid grid-cols-1 md:grid-cols-2
-                ls:grid-cols-3 xl:grid-cols-4 gap-6"
+                className="md:w-[90vw] grid grid-cols-2 md:grid-cols-3
+                ls:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-6"
             >
                 {product.map(
                     ({
@@ -44,15 +44,15 @@ export default function Products() {
                         return (
                             <div
                                 key={_id}
-                                className="group  w-[320px] md:w-full bg-white/90 overflow-hidden
+                                className="group  w-[180px] md:w-full bg-white/90 overflow-hidden
                                 drop-shadow-xl hover:shadow-md rounded-lg"
                             >
-                                <div className="w-full h-[260px] relative border-b-2 mb-1">
+                                <div className="w-full h-[180px] ml:h-[260px] relative border-b-2 mb-1">
                                     <Link href="/">
                                         <Image
                                             className="w-full h-full object-cover
-                                        scale-90 hover:scale-100
-                                        transition-transform duration-300"
+                                            scale-90 hover:scale-100
+                                            transition-transform duration-300"
                                             src={image}
                                             alt={title}
                                             width={300}
@@ -95,7 +95,7 @@ export default function Products() {
                                     {isNew && (
                                         <p
                                             className="absolute top-3 right-3
-                                            text-cPrimary font-medium text-xs
+                                            text-cPrimary font-medium text-[0.6rem] ml:text-xs
                                             tracking-wide animate-bounce"
                                         >
                                             Save{" "}
@@ -107,10 +107,10 @@ export default function Products() {
                                 </div>
                                 {/* star */}
                                 {/* TODO: Render the stars dynamic */}
-                                <div className="px-4 pb-3 font-medium mb-14 relative">
+                                <div className="px-1.5 ml:px-4 pb-0 ml:pb-3 font-medium mb-14 relative">
                                     <Link
                                         href="/"
-                                        className="absolute right-1 top-0 text-sm
+                                        className="absolute right-1 top-0 text-[0.6rem] ml:text-sm
                                     flex text-cPrimary space-x-0.5"
                                     >
                                         <ImStarFull />
@@ -120,29 +120,29 @@ export default function Products() {
                                         <ImStarEmpty />
                                     </Link>
                                     <p
-                                        className="text-xs text-gray-600 px-1
+                                        className="text-[0.6rem] ml:text-xs text-gray-600 px-1
                                     tracking-wide bg-cPrimary/10 rounded-sm w-fit"
                                     >
                                         {category}
                                     </p>
-                                    <p className="text-base font-medium">
+                                    <p className="ml:text-base ml:font-medium text-sm font-normal">
                                         {title}
                                     </p>
-                                    <p className="flex items-center gap-2">
-                                        <span className="text-cPrimary font-semibold">
+                                    <p className="flex items-center gap-1 ml:gap-2">
+                                        <span className="text-cPrimary font-medium ml:font-semibold text-sm ml:text-base">
                                             <FormattedPrice amount={price} />
                                         </span>
-                                        <span className="text-sm line-through">
+                                        <span className="text-xs ml:text-sm line-through">
                                             <FormattedPrice amount={oldPrice} />
                                         </span>
                                     </p>
-                                    <p className="truncate text-sm">
+                                    <p className="truncate text-xs ml:text-sm">
                                         {description}
                                     </p>
                                 </div>
                                 {/* Add to cart */}
                                 <div
-                                    className="w-[95%] h-12 absolute bottom-3
+                                    className="w-[90%] lg:w-[95%] h-9 ml:h-12 absolute bottom-3
                                      left-2.5 
                                     "
                                 >

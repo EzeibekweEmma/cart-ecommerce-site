@@ -25,7 +25,7 @@ export default function Header() {
         bg-white font-semibold text-cPrimary",
     };
 
-    const favoriteQuantity = useStore((state) => state.favoriteQuantity);
+    const favorites = useStore((state) => state.favorites);
     const cartQuantity = useStore((state) => state.cartQuantity);
 
     return (
@@ -55,19 +55,22 @@ export default function Header() {
                     {/* Favorites */}
                     <Link
                         href="favorites"
-                        className={`${linkStyle.div} relative`}
+                        className={`${linkStyle.div} relative `}
                     >
-                        <span
-                            className={`${linkStyle.number} left-[1.82rem] top-1`}
-                        >
-                            {favoriteQuantity}
-                        </span>
+                        {favorites.length > 0 && (
+                            <span className="absolute flex h-2 w-2 left-[1.9rem] top-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-900" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-cPrimary" />
+                            </span>
+                        )}
                         <HiOutlineHeart className={linkStyle.icon} />
                         <span className={linkStyle.span}>Favorites</span>
                     </Link>
                     {/* Cart */}
                     <Link href="cart" className={`${linkStyle.div} relative`}>
-                        <span className={linkStyle.number}>{cartQuantity}</span>
+                        <span className={linkStyle.number}>
+                            {cartQuantity ? cartQuantity : 0}
+                        </span>
                         <HiOutlineShoppingCart className={linkStyle.icon} />
                         <span className={linkStyle.span}>Cart</span>
                     </Link>

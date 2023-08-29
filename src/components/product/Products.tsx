@@ -10,11 +10,18 @@ import FormattedPrice from "./FormattedPrice";
 import AddToCartBtn from "./AddToCartBtn";
 
 export default function Products() {
-    const product: object[] = useStore((state) => state.product);
+    // Access the product state and fetchProduct function from the store
+    const product = useStore((state) => state.product);
+    const favorites = useStore((state) => state.favorites);
+    const addToFavorites = useStore((state) => state.addToFavorites);
     const fetchProduct = useStore((state) => state.fetchProduct);
+    // Fetch product data on component mount
     useEffect(() => {
         fetchProduct();
     }, [fetchProduct]);
+    const favoriteStyle =
+        "w-12 h-12 absolute bottom-1 flex right-1 border-[1px] bg-white rounded-lg\
+        text-cPrimary shadow-md items-center justify-center text-2xl hover:bg-cPrimary/10";
 
     return (
         <section className="flex justify-center">
@@ -53,20 +60,37 @@ export default function Products() {
                                         />
                                     </Link>
                                     {/* Favorites */}
-                                    <div
-                                        className="w-12 h-12 absolute bottom-1 
-                                    right-1 border-[1px] bg-white rounded-lg
-                                    md:translate-x-14 md:group-hover:translate-x-0
-                                    text-cPrimary cursor-pointer
-                                    shadow-md flex items-center justify-center
-                                    text-2xl hover:bg-cPrimary/10 duration-300"
+                                    <button
+                                        onClick={() =>
+                                            addToFavorites({
+                                                _id,
+                                                title,
+                                                brand,
+                                                category,
+                                                description,
+                                                image,
+                                                isNew,
+                                                oldPrice,
+                                                price,
+                                            })
+                                        }
                                     >
-                                        {true ? (
-                                            <HiOutlineHeart />
+                                        {/* Check if the current item is in favorites */}
+                                        {favorites.find(
+                                            (favoritesItem) =>
+                                                favoritesItem._id === _id
+                                        ) ? (
+                                            <div className={favoriteStyle}>
+                                                <HiHeart />
+                                            </div>
                                         ) : (
-                                            <HiHeart />
+                                            <div
+                                                className={`${favoriteStyle} duration-300 md:translate-x-14 md:group-hover:translate-x-0`}
+                                            >
+                                                <HiOutlineHeart />
+                                            </div>
                                         )}
-                                    </div>
+                                    </button>
                                     {/* Discount */}
                                     {isNew && (
                                         <p
@@ -119,8 +143,7 @@ export default function Products() {
                                 {/* Add to cart */}
                                 <div
                                     className="w-[95%] h-12 absolute bottom-3
-                                     left-2.5 duration-300 text-white
-                                    md:translate-y-16 md:group-hover:translate-y-0
+                                     left-2.5 
                                     "
                                 >
                                     <AddToCartBtn

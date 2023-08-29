@@ -1,7 +1,4 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-
-const store = (set) => ({
+const productSlice = (set, get) => ({
     product: [],
     fetchProduct: async () => {
         const res = await fetch("https://fakestoreapiserver.reactbd.com/tech");
@@ -9,4 +6,4 @@ const store = (set) => ({
     },
 });
 
-export const useProduct = create(persist(store, { name: "useProduct" }));
+export default productSlice;

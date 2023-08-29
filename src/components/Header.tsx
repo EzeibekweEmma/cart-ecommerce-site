@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
     HiOutlineShoppingCart,
@@ -7,6 +8,7 @@ import {
 } from "react-icons/hi";
 import Logo from "./common/Logo";
 import Link from "next/link";
+import { useStore } from "@/store/store";
 
 export default function Header() {
     interface style {
@@ -22,12 +24,17 @@ export default function Header() {
         number: "absolute top-0.5 left-[1.7rem] px-1 text-xs rounded-full\
         bg-white font-semibold text-cPrimary",
     };
+
+    const favoriteQuantity = useStore((state) => state.favoriteQuantity);
+    const cartQuantity = useStore((state) => state.cartQuantity);
+
     return (
-        <header className="bg-white ls:h-[4.5rem] h-[7rem] px-10 shadow-md flex flex-col justify-evenly">
+        <header className="bg-white ls:h-[4.5rem] h-[7rem] px-10 shadow-md flex flex-col justify-evenly w-screen fixed z-50">
             <nav className="flex justify-between items-center">
                 {/* Logo */}
                 <Logo />
                 {/* Search Bar */}
+                {/* TODO: Add search functionality */}
                 <form className="text-gray-600 relative hidden ls:flex flex-[0.7]">
                     <input
                         type="search"
@@ -53,14 +60,14 @@ export default function Header() {
                         <span
                             className={`${linkStyle.number} left-[1.82rem] top-1`}
                         >
-                            0
+                            {favoriteQuantity}
                         </span>
                         <HiOutlineHeart className={linkStyle.icon} />
                         <span className={linkStyle.span}>Favorites</span>
                     </Link>
                     {/* Cart */}
                     <Link href="cart" className={`${linkStyle.div} relative`}>
-                        <span className={linkStyle.number}>0</span>
+                        <span className={linkStyle.number}>{cartQuantity}</span>
                         <HiOutlineShoppingCart className={linkStyle.icon} />
                         <span className={linkStyle.span}>Cart</span>
                     </Link>
@@ -72,6 +79,7 @@ export default function Header() {
                 </section>
             </nav>
             {/* Search Bar for mobile */}
+            {/* TODO: Add search functionality */}
             <form className="text-gray-600 relative ls:hidden mr-10">
                 <input
                     type="search"

@@ -1,23 +1,17 @@
 "use client";
-import { useProduct } from "@/store/product";
+import { useStore } from "@/store/store";
 import React, { useEffect } from "react";
 import { ProductProps } from "../../../type";
 import Image from "next/image";
 import Link from "next/link";
-import {
-    HiHeart,
-    HiOutlineShoppingCart,
-    HiOutlineHeart,
-    HiOutlineMinus,
-    HiOutlinePlus,
-} from "react-icons/hi";
+import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { ImStarEmpty, ImStarFull, ImStarHalf } from "react-icons/im";
 import FormattedPrice from "./FormattedPrice";
 import AddToCartBtn from "./AddToCartBtn";
 
 export default function Products() {
-    const product: object[] = useProduct((state) => state.product);
-    const fetchProduct = useProduct((state) => state.fetchProduct);
+    const product: object[] = useStore((state) => state.product);
+    const fetchProduct = useStore((state) => state.fetchProduct);
     useEffect(() => {
         fetchProduct();
     }, [fetchProduct]);
@@ -43,7 +37,7 @@ export default function Products() {
                         return (
                             <div
                                 key={_id}
-                                className="group w-full bg-white/90 overflow-hidden
+                                className="group  w-[320px] md:w-full bg-white/90 overflow-hidden
                                 drop-shadow-xl hover:shadow-md rounded-lg"
                             >
                                 <div className="w-full h-[260px] relative border-b-2 mb-1">
@@ -62,7 +56,7 @@ export default function Products() {
                                     <div
                                         className="w-12 h-12 absolute bottom-1 
                                     right-1 border-[1px] bg-white rounded-lg
-                                    translate-x-14 group-hover:translate-x-0
+                                    md:translate-x-14 md:group-hover:translate-x-0
                                     text-cPrimary cursor-pointer
                                     shadow-md flex items-center justify-center
                                     text-2xl hover:bg-cPrimary/10 duration-300"
@@ -88,7 +82,7 @@ export default function Products() {
                                     )}
                                 </div>
                                 {/* star */}
-                                {/* TODO: Render it dynamic */}
+                                {/* TODO: Render the stars dynamic */}
                                 <div className="px-4 pb-3 font-medium mb-14 relative">
                                     <Link
                                         href="/"
@@ -126,10 +120,20 @@ export default function Products() {
                                 <div
                                     className="w-[95%] h-12 absolute bottom-3
                                      left-2.5 duration-300 text-white
-                                    translate-y-16 group-hover:translate-y-0
+                                    md:translate-y-16 md:group-hover:translate-y-0
                                     "
                                 >
-                                    <AddToCartBtn />
+                                    <AddToCartBtn
+                                        _id={_id}
+                                        title={title}
+                                        brand={brand}
+                                        category={category}
+                                        description={description}
+                                        image={image}
+                                        isNew={isNew}
+                                        oldPrice={oldPrice}
+                                        price={price}
+                                    />
                                 </div>
                             </div>
                         );

@@ -17,9 +17,9 @@ Deployed Site: [Cart E-Commerce Website](https://cart-ecommerce-site.vercel.app/
 
 ### Ezeibekwe Emmanuel
 
-👨‍💻 Software Engineer (Frontend Heavy)
-📧 Email: [ezeibekweemma@gmail.com](mailto:ezeibekweemma@gmail.com)
-💼 LinkedIn: [https://www.linkedin.com/in/ezeibekweemma/](https://www.linkedin.com/in/ezeibekweemma/)
+- 👨‍💻 Software Engineer (Frontend Heavy)
+- 📧 Email: [ezeibekweemma@gmail.com](mailto:ezeibekweemma@gmail.com)
+- 💼 LinkedIn: [https://www.linkedin.com/in/ezeibekweemma/](https://www.linkedin.com/in/ezeibekweemma/)
 
 ---
 
@@ -44,7 +44,7 @@ Deployed Site: [Cart E-Commerce Website](https://cart-ecommerce-site.vercel.app/
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/EzeibekweEmma/e-commerce.git
+    git clone https://github.com/EzeibekweEmma/totalitycorp-frontend-challenge.git
     ```
 
 2. Navigate to the project directory:

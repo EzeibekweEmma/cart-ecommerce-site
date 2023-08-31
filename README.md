@@ -9,13 +9,15 @@
 
 Welcome to the Cart E-Commerce Website, a modern and user-friendly online shopping platform built using Next.js. This project utilizes a variety of technologies including TypeScript, Zustand for state management, Tailwind CSS for styling, React.js for building UI components, and React Icons for adding icons to the interface. The website aims to provide a seamless shopping experience with features like a shopping cart, favorites list, search bar, checkout/payment option, user profiles, and product pages.
 
+Deployed Site: [Cart E-Commerce Website](https://cart-ecommerce-site.vercel.app/)
+
 ---
 
 ## Author
 
 ### Ezeibekwe Emmanuel
 
-Software Engineer (Frontend Heavy)  
+👨‍💻 Software Engineer (Frontend Heavy)
 📧 Email: [ezeibekweemma@gmail.com](mailto:ezeibekweemma@gmail.com)
 💼 LinkedIn: [https://www.linkedin.com/in/ezeibekweemma/](https://www.linkedin.com/in/ezeibekweemma/)
 

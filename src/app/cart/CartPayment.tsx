@@ -26,10 +26,10 @@ const CartPayment = () => {
 
     return (
         <section className="flex flex-col gap-4">
-            <div className="flex gap-2 text-sm space-y-2">
+            <div className="flex gap-2 text-[0.8rem] md:text-sm space-y-2">
                 <span
-                    className="bg-green-600 rounded-full p-1 h-6 w-6 flex
-                    items-center justify-center mt-1 text-white"
+                    className="bg-green-600 rounded-full px-1 h-6 w-6 flex
+                    items-center justify-center mt-1 text-white text-sm"
                 >
                     <SiMediamarkt />
                 </span>
@@ -38,9 +38,12 @@ const CartPayment = () => {
                     option as checkout. See details...
                 </p>
             </div>
-            <p className="flex items-center justify-between px-2 font-semibold">
+            <p
+                className="flex items-center justify-between px-2 
+            font-semibold text-sm md:text-base"
+            >
                 Total:
-                <span className="font-bold text-lg text-cPrimary">
+                <span className="font-semibold md:font-bold text-sm md:text-lg text-cPrimary">
                     <FormattedPrice amount={totalPrice()} />
                 </span>
             </p>

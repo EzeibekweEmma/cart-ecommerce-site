@@ -18,10 +18,6 @@ module.exports = {
             colors: {
                 cPrimary: "#0b935b",
                 cGray: "#f5f6f8",
-                cSecondary: {
-                    100: "#e2e2d5",
-                    200: "#888883",
-                },
             },
         },
     },

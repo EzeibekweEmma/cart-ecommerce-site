@@ -35,31 +35,39 @@ const CartProduct = ({ item }: cartProductProps) => {
         justify-center hover:bg-cPrimary duration-500 rounded-lg text-white";
 
     return (
-        <section className="bg-gray-100 relative rounded-lg flex items-center">
+        <section
+            className="bg-gray-100 relative rounded-lg flex flex-col
+        sl:flex-row items-center"
+        >
             <Link
                 href="/"
-                className="h-full w-[9.6rem] left-0 top-0 absolute"
+                className="h-[8.2rem] w-full ls:h-full sl:w-[7.3rem] md:w-[8.8rem] left-0 top-0 absolute"
             />
             <Image
                 width={150}
                 height={150}
                 src={item.image}
                 alt={item.title}
-                className="object-cover"
+                className="object-cover h-[8.2rem] w-[8.2rem] md:h-[10rem] md:w-[10rem]"
             />
-            <section className="flex items-center px-2 gap-4 text-gray-600 text-sm">
+            <section className="flex items-center px-2 gap-4 text-gray-600 text-xs md:text-sm">
                 <div className="flex flex-col gap-1">
                     <Link
                         href="/"
-                        className="text-lg font-semibold text-cPrimary"
+                        className="text-base md:text-lg font-semibold text-cPrimary"
                     >
                         {item.title}
                     </Link>
-                    <p>{item.description}</p>
-                    <p>
-                        Unit Price{" "}
-                        <span className="font-semibold text-cPrimary">
-                            <FormattedPrice amount={item.price} />
+                    <p className="line-clamp-2">{item.description}</p>
+                    <p className="font-semibold text-cPrimary flex justify-between">
+                        <span>
+                            Unit Price: <FormattedPrice amount={item.price} />
+                        </span>
+                        <span className="block md:hidden">
+                            Subtotal:{" "}
+                            <FormattedPrice
+                                amount={item.price * item.quantity}
+                            />
                         </span>
                     </p>
                     <div className="flex items-center space-x-3 font-semibold duration-300 mb-1">
@@ -106,7 +114,8 @@ const CartProduct = ({ item }: cartProductProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="text-base font-semibold text-cPrimary">
+                {/* subtotal desktop  display */}
+                <div className="text-base font-semibold text-cPrimary hidden md:block">
                     <FormattedPrice amount={item.price * item.quantity} />
                 </div>
             </section>

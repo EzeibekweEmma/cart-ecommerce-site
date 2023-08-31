@@ -15,8 +15,8 @@ const ResetCart = () => {
                 confirm("Your are about to empty your cart!") && resetCart()
             }
         >
-            <HiOutlineArrowPath className="text-lg stroke-2" />
-            <span>Reset Cart</span>
+            <HiOutlineArrowPath className="text-base md:text-lg stroke-2" />
+            <span className="text-sm md:text-base">Reset Cart</span>
         </button>
     );
 };

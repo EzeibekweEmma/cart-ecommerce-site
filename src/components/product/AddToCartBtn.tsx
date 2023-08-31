@@ -75,8 +75,11 @@ export default function AddToCartBtn({
                     className={`${btnStyle} text-xs ml:text-sm space-x-2 w-full group/cart
                     font-semibold duration-300 md:translate-y-16 md:group-hover:translate-y-0`}
                 >
-                    <HiOutlineShoppingCart className="duration-300 w-4 ml:w-5 h-4 ml:h-5 stroke-2 group-hover/cart:translate-x-[6.5rem]" />
-                    <span className="group-hover/cart:-translate-x-8 duration-300">
+                    <HiOutlineShoppingCart
+                        className="duration-300 w-4 ml:w-5 h-4 ml:h-5 stroke-2
+                    group-hover/cart:translate-x-[5.5rem] ml:group-hover/cart:translate-x-[6.5rem]"
+                    />
+                    <span className="group-hover/cart:-translate-x-7 ml:group-hover/cart:-translate-x-8 duration-300">
                         ADD TO CART
                     </span>
                 </button>

@@ -4,7 +4,7 @@ interface Props {
     amount: number;
 }
 
-export default function formattedPrice({ amount }: Props) {
+export default function FormattedPrice({ amount }: Props) {
     const formattedAmount = new Number(amount).toLocaleString("en-US", {
         style: "currency",
         currency: "USD",

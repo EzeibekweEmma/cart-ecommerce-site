@@ -9,6 +9,7 @@ import {
     HiOutlineTrash,
 } from "react-icons/hi";
 import { useStore } from "@/store/store";
+import Link from "next/link";
 
 /**
  * CartProduct component displays a single product in the cart with functionalities like
@@ -34,7 +35,11 @@ const CartProduct = ({ item }: cartProductProps) => {
         justify-center hover:bg-cPrimary duration-500 rounded-lg text-white";
 
     return (
-        <section className="bg-gray-100 rounded-lg flex items-center gap-4">
+        <section className="bg-gray-100 relative rounded-lg flex items-center">
+            <Link
+                href="/"
+                className="h-full w-[9.6rem] left-0 top-0 absolute"
+            />
             <Image
                 width={150}
                 height={150}
@@ -44,9 +49,12 @@ const CartProduct = ({ item }: cartProductProps) => {
             />
             <section className="flex items-center px-2 gap-4 text-gray-600 text-sm">
                 <div className="flex flex-col gap-1">
-                    <p className="text-lg font-semibold text-cPrimary">
+                    <Link
+                        href="/"
+                        className="text-lg font-semibold text-cPrimary"
+                    >
                         {item.title}
-                    </p>
+                    </Link>
                     <p>{item.description}</p>
                     <p>
                         Unit Price{" "}
@@ -54,7 +62,7 @@ const CartProduct = ({ item }: cartProductProps) => {
                             <FormattedPrice amount={item.price} />
                         </span>
                     </p>
-                    <div className="flex items-center space-x-3 font-semibold duration-300">
+                    <div className="flex items-center space-x-3 font-semibold duration-300 mb-1">
                         {item.quantity > 1 ? (
                             <button
                                 onClick={() => removeFromCart(item._id)}
@@ -65,7 +73,7 @@ const CartProduct = ({ item }: cartProductProps) => {
                         ) : (
                             <button
                                 disabled
-                                className={`${btnStyle} hover:cursor-not-allowed`}
+                                className={`${btnStyle} hover:cursor-not-allowed bg-cPrimary/50`}
                             >
                                 <HiOutlineMinus className="stroke-2" />
                             </button>
@@ -91,7 +99,9 @@ const CartProduct = ({ item }: cartProductProps) => {
                                 onClick={saveForLater}
                             >
                                 <HiOutlineHeart className="text-lg text-cPrimary group-hover:scale-125" />
-                                <span className="pt-0.5">Save for later</span>
+                                <span className="pt-0.5">
+                                    Save&nbsp;for&nbsp;later
+                                </span>
                             </button>
                         </div>
                     </div>

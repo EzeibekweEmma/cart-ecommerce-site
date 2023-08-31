@@ -27,6 +27,23 @@ const cartSlice = (set, get) => ({
         });
     },
 
+    increaseQuantity: (itemId) => {
+        set((prev) => {
+            // Check if the item already exists in the cart
+            const existingItemIndex = prev.cart.findIndex(
+                (cartItem) => cartItem._id === itemId
+            );
+            // Update item quantity
+            const updatedCart = [...prev.cart];
+            updatedCart[existingItemIndex].quantity += 1;
+
+            return {
+                cart: updatedCart,
+                cartQuantity: prev.cartQuantity + 1,
+            };
+        });
+    },
+
     removeFromCart: (itemId) => {
         const existingItemIndex = get().cart.findIndex(
             (cartItem) => cartItem._id === itemId
@@ -49,6 +66,31 @@ const cartSlice = (set, get) => ({
                 cartQuantity: get().cartQuantity - 1,
             });
         }
+    },
+
+    deleteFromCart: (itemId) => {
+        const existingItemIndex = get().cart.findIndex(
+            (cartItem) => cartItem._id === itemId
+        );
+        const updatedCart = [...get().cart];
+        const deletedItem = updatedCart[existingItemIndex];
+
+        // Delete the item cart
+        updatedCart.splice(existingItemIndex, 1);
+
+        set({
+            // Update the cart and cartQuantity
+            cart: updatedCart,
+            cartQuantity: get().cartQuantity - deletedItem.quantity,
+        });
+    },
+
+    resetCart: () => {
+        set({
+            // Reset cart and cartQuantity to default values
+            cart: [],
+            cartQuantity: 0,
+        });
     },
 });
 

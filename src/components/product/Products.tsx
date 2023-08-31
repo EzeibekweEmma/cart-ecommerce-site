@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { ImStarEmpty, ImStarFull, ImStarHalf } from "react-icons/im";
-import FormattedPrice from "./FormattedPrice";
+import FormattedPrice from "../common/FormattedPrice";
 import AddToCartBtn from "./AddToCartBtn";
 
 export default function Products() {
@@ -156,6 +156,7 @@ export default function Products() {
                                         isNew={isNew}
                                         oldPrice={oldPrice}
                                         price={price}
+                                        quantity={1}
                                     />
                                 </div>
                             </div>

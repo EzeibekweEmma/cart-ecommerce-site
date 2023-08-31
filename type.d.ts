@@ -9,3 +9,6 @@ export interface ProductProps {
     oldPrice: number;
     price: number;
 }
+export interface StoreProduct extends ProductProps {
+    quantity: number;
+}

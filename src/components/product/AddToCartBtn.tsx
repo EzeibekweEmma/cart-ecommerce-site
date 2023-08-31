@@ -5,6 +5,7 @@ import {
     HiOutlinePlus,
     HiOutlineShoppingCart,
 } from "react-icons/hi";
+import { StoreProduct } from "../../../type";
 
 export default function AddToCartBtn({
     _id,
@@ -16,11 +17,12 @@ export default function AddToCartBtn({
     isNew,
     oldPrice,
     price,
-}) {
+    quantity,
+}: StoreProduct) {
     // Define CSS classes for button styles
     const btnStyle: string =
         "h-full border-[1px] bg-cPrimary/80 shadow-md flex items-center\
-    justify-center hover:bg-cPrimary duration-500 rounded-lg text-white";
+        justify-center hover:bg-cPrimary duration-500 rounded-lg text-white";
     // Access cart state and functions from the store
     const cart = useStore((state) => state.cart);
     const existingCartItem = cart.find((cartItem) => cartItem._id === _id);
@@ -39,7 +41,7 @@ export default function AddToCartBtn({
             isNew,
             oldPrice,
             price,
-            quantity: 1,
+            quantity,
         });
     };
 

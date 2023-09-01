@@ -48,7 +48,12 @@ export default function Products() {
                                 drop-shadow-xl hover:shadow-md rounded-lg"
                             >
                                 <div className="w-full h-[180px] ml:h-[260px] relative border-b-2 mb-1">
-                                    <Link href="/">
+                                    <Link
+                                        href={{
+                                            pathname: `/${_id}`,
+                                            query: { _id, title },
+                                        }}
+                                    >
                                         <Image
                                             className="w-full h-full object-cover
                                             scale-90 hover:scale-100

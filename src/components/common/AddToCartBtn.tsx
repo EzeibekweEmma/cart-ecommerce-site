@@ -51,7 +51,7 @@ export default function AddToCartBtn({
             {existingCartItem?.quantity > 0 ? (
                 <div
                     className="w-full h-full flex items-center justify-between 
-                text-2xl duration-300 translate-y-0"
+                text-2xl duration-300"
                 >
                     <button
                         onClick={() => removeFromCart(_id)}
@@ -73,7 +73,7 @@ export default function AddToCartBtn({
                 <button
                     onClick={handleAddToCart}
                     className={`${btnStyle} text-xs ml:text-sm space-x-2 w-full group/cart
-                    font-semibold duration-300 md:translate-y-16 md:group-hover:translate-y-0`}
+                    font-semibold`}
                 >
                     <HiOutlineShoppingCart
                         className="duration-300 w-4 ml:w-5 h-4 ml:h-5 stroke-2

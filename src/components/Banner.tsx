@@ -6,7 +6,7 @@ import images from "./BannerImages";
 
 const Banner = () => {
     return (
-        <section className="relative">
+        <section className="relative w-[99vw]">
             <Carousel
                 autoPlay
                 infiniteLoop
@@ -22,8 +22,8 @@ const Banner = () => {
                                 priority
                                 src={image.url}
                                 alt={image.alt}
-                                width="1000"
-                                height="1000"
+                                width="500"
+                                height="500"
                                 className="h-[55vh] md:h-[65vh] lg:h-[80vh]"
                             />
                         </div>

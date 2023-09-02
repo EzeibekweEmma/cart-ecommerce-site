@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { StoreProduct } from "../../../type";
 import FormattedPrice from "@/components/common/FormattedPrice";
-import AddToCartBtn from "@/components/product/AddToCartBtn";
+import AddToCartBtn from "@/components/common/AddToCartBtn";
 import Link from "next/link";
 import { ImStarEmpty, ImStarFull, ImStarHalf } from "react-icons/im";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
@@ -28,7 +28,7 @@ const ItemPage = () => {
 
     const favoriteStyle =
         "w-12 h-12 absolute bottom-2 flex right-6 rounded-full\
-        text-cPrimary items-center justify-center text-3xl hover:bg-cPrimary/10";
+        text-cPrimary items-center justify-center text-3xl bg-cPrimary/10";
     const {
         _id,
         title,

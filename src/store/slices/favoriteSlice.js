@@ -39,6 +39,13 @@ const favoriteSlice = (set, get) => ({
             });
         }
     },
+
+    resetFavorites: () => {
+        set({
+            // Reset favorites to empty array
+            favorites: [],
+        });
+    },
 });
 
 export default favoriteSlice;

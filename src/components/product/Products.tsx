@@ -7,7 +7,7 @@ import Link from "next/link";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { ImStarEmpty, ImStarFull, ImStarHalf } from "react-icons/im";
 import FormattedPrice from "../common/FormattedPrice";
-import AddToCartBtn from "./AddToCartBtn";
+import AddToCartBtn from "../common/AddToCartBtn";
 
 export default function Products() {
     // Access the product state and fetchProduct function from the store
@@ -27,7 +27,7 @@ export default function Products() {
         <section className="flex justify-center">
             <div
                 className="md:w-[90vw] grid grid-cols-2 md:grid-cols-3
-                ls:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-6"
+                ls:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-6"
             >
                 {product.map(
                     ({
@@ -110,11 +110,11 @@ export default function Products() {
                                         </p>
                                     )}
                                 </div>
-                                {/* star */}
-                                {/* TODO: Render the stars dynamic */}
-                                <div className="px-1.5 ml:px-4 pb-0 ml:pb-3 font-medium mb-14 relative">
+                                <div className="px-1.5 ml:px-3 pb-3 font-medium relative">
+                                    {/* star */}
+                                    {/* TODO: Render the stars dynamic */}
                                     <Link
-                                        href="/"
+                                        href="#"
                                         className="absolute right-1 top-0 text-[0.6rem] ml:text-sm
                                     flex text-cPrimary space-x-0.5"
                                     >
@@ -130,7 +130,7 @@ export default function Products() {
                                     >
                                         {category}
                                     </p>
-                                    <p className="ml:text-base ml:font-medium text-sm font-normal">
+                                    <p className="ml:text-base ml:font-medium truncate text-sm font-normal">
                                         {title}
                                     </p>
                                     <p className="flex items-center gap-1 ml:gap-2">
@@ -144,25 +144,21 @@ export default function Products() {
                                     <p className="truncate text-xs ml:text-sm">
                                         {description}
                                     </p>
-                                </div>
-                                {/* Add to cart */}
-                                <div
-                                    className="w-[90%] lg:w-[95%] h-9 ml:h-12 absolute bottom-3
-                                     left-2.5 
-                                    "
-                                >
-                                    <AddToCartBtn
-                                        _id={_id}
-                                        title={title}
-                                        brand={brand}
-                                        category={category}
-                                        description={description}
-                                        image={image}
-                                        isNew={isNew}
-                                        oldPrice={oldPrice}
-                                        price={price}
-                                        quantity={1}
-                                    />
+                                    {/* Add to cart */}
+                                    <div className="w-full h-9 ml:h-12 my-1">
+                                        <AddToCartBtn
+                                            _id={_id}
+                                            title={title}
+                                            brand={brand}
+                                            category={category}
+                                            description={description}
+                                            image={image}
+                                            isNew={isNew}
+                                            oldPrice={oldPrice}
+                                            price={price}
+                                            quantity={1}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         );

@@ -30,12 +30,12 @@ Deployed Site: [Cart E-Commerce Website](https://cart-ecommerce-site.vercel.app/
 -   Remove products from your shopping cart.
 -   Increase or decrease product quantities in the cart.
 -   Save products to your favorites list.
--   View and manage your favorites list (under development).
+-   View and manage your favorites.
+-   View detailed product information on individual product pages.
 -   Search for products using the search bar (under development).
 -   Proceed to checkout and choose payment options (under development).
 -   View and manage user profile (under development).
 -   Secure user authentication (under development).
--   View detailed product information on individual product pages (under development).
 
 ---
 

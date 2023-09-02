@@ -57,8 +57,11 @@ const CartProduct = ({ item }: cartProductProps) => {
             <section className="flex items-center px-2 gap-4 text-gray-600 text-xs md:text-sm">
                 <div className="flex flex-col gap-1">
                     <Link
-                        href="/"
-                        className="text-base md:text-lg font-semibold text-cPrimary"
+                        href={{
+                            pathname: `/${_id}`,
+                            query: { _id, title },
+                        }}
+                        className="text-base md:text-lg font-semibold w-fit text-cPrimary"
                     >
                         {title}
                     </Link>

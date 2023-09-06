@@ -1,6 +1,6 @@
 "use client";
 import { useStore } from "@/store/store";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { ProductProps } from "../../../type";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { ImStarEmpty, ImStarFull, ImStarHalf } from "react-icons/im";
 import FormattedPrice from "../common/FormattedPrice";
 import AddToCartBtn from "../common/AddToCartBtn";
+import { useSearchParams } from "next/navigation";
 
 export default function Products() {
     // Access the product state and fetchProduct function from the store
@@ -15,10 +16,33 @@ export default function Products() {
     const favorites = useStore((state) => state.favorites);
     const addToFavorites = useStore((state) => state.addToFavorites);
     const fetchProduct = useStore((state) => state.fetchProduct);
-    // Fetch product data on component mount
+    const searchParams = useSearchParams();
+    const filter = searchParams.getAll("filter");
+
     useEffect(() => {
+        // Fetch product data on component mount
         fetchProduct();
     }, [fetchProduct]);
+
+    const filteredProducts = useMemo(() => {
+        let filteredProd: string[];
+        // Check the filter type to apply the appropriate filtering logic
+        if (filter[0] === "price") {
+            // Filter products by price range
+            filteredProd = product.filter(
+                (item) =>
+                    item[filter[0]] >= filter[1] && item[filter[0]] <= filter[2]
+            );
+        } else {
+            filteredProd = product.filter(
+                // Filter products by other criteria (like, category, brand)
+                (item) => item[filter[0]] === filter[1]
+            );
+        }
+        // Ensure that filtered products are returned if available; otherwise, return the original product list
+        return filteredProd.length > 0 ? filteredProd : product;
+    }, [product, filter]);
+
     const favoriteStyle =
         "w-9 ml:w-12 h-9 ml:h-12 absolute bottom-1 flex right-1 border-[1px] bg-white rounded-lg\
         text-cPrimary shadow-md items-center justify-center text-lg ml:text-2xl hover:bg-cPrimary/10";
@@ -29,7 +53,7 @@ export default function Products() {
                 className="md:w-[90vw] grid grid-cols-2 md:grid-cols-3
                 ls:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-6"
             >
-                {product.map(
+                {filteredProducts?.map(
                     ({
                         _id,
                         title,

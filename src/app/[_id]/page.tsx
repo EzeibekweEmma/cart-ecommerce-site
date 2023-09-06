@@ -98,7 +98,7 @@ const ItemPage = () => {
                             )}
                         </div>
                         {/* TODO: Render the stars dynamic */}
-                        <div className="pl-2 pr-5 pb-2 font-medium space-y-2 md:flex-[0.7] relative">
+                        <div className="pl-2 pr-5 pb-2 space-y-2 md:flex-[0.7] relative">
                             {/* star */}
                             <Link
                                 href="/"
@@ -126,7 +126,7 @@ const ItemPage = () => {
                                     <FormattedPrice amount={oldPrice} />
                                 </span>
                             </p>
-                            <p className="md">{description}</p>
+                            <p className="font-normal">{description}</p>
                             {/* Add to cart */}
                             <div className="w-full h-12">
                                 <AddToCartBtn

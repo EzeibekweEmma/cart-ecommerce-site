@@ -3,7 +3,6 @@ import React from "react";
 import {
     HiOutlineShoppingCart,
     HiOutlineHeart,
-    HiOutlineSearch,
     HiOutlineUserCircle,
 } from "react-icons/hi";
 import Logo from "./common/Logo";
@@ -11,6 +10,7 @@ import Link from "next/link";
 import { useStore } from "@/store/store";
 import { usePathname } from "next/navigation";
 import FilterBy from "./FilterBy";
+import Search from "./Search";
 
 export default function Header() {
     const path = usePathname();
@@ -46,20 +46,7 @@ export default function Header() {
                     {/* Search Bar */}
                     {/* TODO: Add search functionality */}
                     <form className="text-gray-600 relative hidden ls:flex flex-[0.7]">
-                        <input
-                            type="search"
-                            placeholder="Search Products, brands and Categories"
-                            className="w-full h-10 border border-gray-300 rounded-s-md
-                            px-5 focus:outline-none border-r-0 shadow-md focus:bg-cPrimary/5"
-                        />
-                        <button
-                            type="submit"
-                            className="absolute -right-10 p-[0.33rem] rounded-e-md border border-gray-300
-                    bg-cPrimary/5 hover:text-cPrimary/60 shadow-md"
-                        >
-                            <HiOutlineSearch className="h-7 w-7" />
-                        </button>
-                        <input type="submit" hidden />
+                        <Search />
                     </form>
                     <section className="flex justify-between items-center md:flex-[0.2] space-x-1">
                         {/* Favorites */}
@@ -106,20 +93,7 @@ export default function Header() {
                 {/* Search Bar for mobile */}
                 {/* TODO: Add search functionality */}
                 <form className="text-gray-600 relative ls:hidden mr-10 mb-1.5 ls:mb-0">
-                    <input
-                        type="search"
-                        placeholder="Search Products, brands and Categories"
-                        className="w-full h-10 border border-gray-300 rounded-s-md
-                    px-5 focus:outline-none border-r-0 shadow-md focus:bg-cPrimary/5"
-                    />
-                    <button
-                        type="submit"
-                        className="absolute -right-10 p-[0.33rem] rounded-e-md border border-gray-300
-                    bg-cPrimary/5 hover:text-cPrimary/60 shadow-md"
-                    >
-                        <HiOutlineSearch className="h-7 w-7" />
-                    </button>
-                    <input type="submit" hidden />
+                    <Search />
                 </form>
             </nav>
             <div>

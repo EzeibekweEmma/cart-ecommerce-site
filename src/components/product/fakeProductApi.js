@@ -19,7 +19,7 @@ export const fakeApi = [
         price: 169,
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla non magni facili blanditiis molestias soluta eveniet illum accusantium eius mollitia eligendi, ex iste doloribus magnam.",
-        category: "Smart Watc",
+        category: "Smart Watch",
         image: "https://i.ibb.co/w4K4TY2/watch-9.webp",
         brand: "Sony",
     },

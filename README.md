@@ -17,9 +17,9 @@ Deployed Site: [Cart E-Commerce Website](https://cart-ecommerce-site.vercel.app/
 
 ### Ezeibekwe Emmanuel
 
-- 👨‍💻 Software Engineer (Frontend Heavy)
-- 📧 Email: [ezeibekweemma@gmail.com](mailto:ezeibekweemma@gmail.com)
-- 💼 LinkedIn: [https://www.linkedin.com/in/ezeibekweemma/](https://www.linkedin.com/in/ezeibekweemma/)
+-   👨‍💻 Software Engineer (Frontend Heavy)
+-   📧 Email: [ezeibekweemma@gmail.com](mailto:ezeibekweemma@gmail.com)
+-   💼 LinkedIn: [https://www.linkedin.com/in/ezeibekweemma/](https://www.linkedin.com/in/ezeibekweemma/)
 
 ---
 
@@ -32,7 +32,8 @@ Deployed Site: [Cart E-Commerce Website](https://cart-ecommerce-site.vercel.app/
 -   Save products to your favorites list.
 -   View and manage your favorites.
 -   View detailed product information on individual product pages.
--   Search for products using the search bar (under development).
+-   Filter the products by category, brand, or price.
+-   Search for products using the search bar.
 -   Proceed to checkout and choose payment options (under development).
 -   View and manage user profile (under development).
 -   Secure user authentication (under development).

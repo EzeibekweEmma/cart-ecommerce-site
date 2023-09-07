@@ -14,9 +14,9 @@ const Search = () => {
         const filtered = product.filter((p) => {
             return (
                 e.toLowerCase() !== "" &&
-                (p.title.toLowerCase().includes(e) ||
-                    p.brand.toLowerCase().includes(e) ||
-                    p.category.toLowerCase().includes(e))
+                (p.title.toLowerCase().includes(e.toLowerCase()) ||
+                    p.brand.toLowerCase().includes(e.toLowerCase()) ||
+                    p.category.toLowerCase().includes(e.toLowerCase()))
             );
         });
         setFilteredSearch(filtered);

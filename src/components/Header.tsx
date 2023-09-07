@@ -44,7 +44,6 @@ export default function Header() {
                     {/* Logo */}
                     <Logo />
                     {/* Search Bar */}
-                    {/* TODO: Add search functionality */}
                     <form className="text-gray-600 relative hidden ls:flex flex-[0.7]">
                         <Search />
                     </form>
@@ -91,8 +90,7 @@ export default function Header() {
                     </section>
                 </section>
                 {/* Search Bar for mobile */}
-                {/* TODO: Add search functionality */}
-                <form className="text-gray-600 relative ls:hidden mr-10 mb-1.5 ls:mb-0">
+                <form className="text-gray-600 relative ls:hidden mb-1.5 ls:mb-0">
                     <Search />
                 </form>
             </nav>

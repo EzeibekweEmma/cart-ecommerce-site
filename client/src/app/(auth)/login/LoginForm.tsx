@@ -3,13 +3,26 @@
 import { useState } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LuEye, LuEyeOff, LuInfo } from 'react-icons/lu';
 import Link from 'next/link';
+// import axiosInstance from '@/app/util/axios';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 function LogInForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [isPassword, setIsPassword] = useState(true);
+
+  if (searchParams.get('message')) {
+    if (searchParams.get('status') === '200')
+      toast.success(searchParams.get('message'));
+    else toast.error(searchParams.get('message'));
+    router.replace('http://localhost:3000/auth/login');
+  }
 
   const formSchema = z.object({
     email: z.string().email(),
@@ -33,7 +46,19 @@ function LogInForm() {
 
   // submit form
   const submitData = async (data: formType) => {
-    // submitForm
+    // try {
+    //   const response = await axiosInstance.post('/login', data);
+    //   // Display success toast
+    //   toast.success(response.data.message);
+    //   reset();
+    //   router.push('../dashboard');
+    // } catch (error: any) {
+    //   // Handle errors
+    //   const errorMessage = (
+    //     axios.isAxiosError(error) && error?.response?.data?.message
+    //   ) || 'An unexpected error occurred. Please try again later.';
+    //   toast.error(errorMessage);
+    // }
   };
 
   return (

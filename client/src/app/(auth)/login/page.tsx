@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 import LogInForm from './LoginForm';
+import { BsDashLg } from 'react-icons/bs';
 
 function Login() {
   return (
@@ -14,6 +15,22 @@ function Login() {
               <p className="text-sm md:text-base text-cPrimary/80 mb-10 mt-1.5">
                 Log in to your account
               </p>
+
+              <Link
+                href="http://localhost:8000/api/google"
+                className="flex justify-center items-center
+                border-2 h-12 rounded-md space-x-2 font-semibold
+                hover:text-cPrimary hover:border-cPrimary"
+              >
+                <FcGoogle />
+                <span>login with Google</span>
+              </Link>
+
+              <div className="text-[12.5px] md:text-sm text-grayText mt-7 flex items-center justify-center">
+                <BsDashLg />
+                <span className="mx-4">Or</span>
+                <BsDashLg />
+              </div>
             </div>
 
             {/* Form */}
@@ -41,7 +58,7 @@ function Login() {
           src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
           width={300}
           height={300}
-          alt="site constructor illustration"
+          alt="bg image"
           className="w-full h-full object-cover"
         />
       </div>

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { z } from 'zod';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LuEye, LuEyeOff, LuInfo } from 'react-icons/lu';
+// import axiosInstance from '@/app/util/axios';
 import DisplayPasswordStrength from '@/components/DisplayPasswordStrength';
 
 type setSuccessDisplayType = {
@@ -59,13 +62,25 @@ function RegisterForm({ setSuccessDisplay }: setSuccessDisplayType) {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<formType>({
     resolver: zodResolver(formSchema),
   });
 
   const submitData = async (data: formType) => {
     const newData = { ...data, password };
-    // submitData
+
+    // try {
+    //   await axiosInstance.post('/register', newData);
+    //   reset();
+    //   setSuccessDisplay(true);
+    // } catch (error: any) {
+    //   // Handle errors
+    //   const errorMessage = (
+    //     axios.isAxiosError(error) && error?.response?.data?.message
+    //   ) || 'An unexpected error occurred. Please try again later.';
+    //   toast.error(errorMessage);
+    // }
   };
 
   return (

@@ -44,7 +44,7 @@ export default function Products() {
     }, [product, filter]);
 
     const favoriteStyle =
-        "w-9 ml:w-12 h-9 ml:h-12 absolute bottom-1 flex right-1 border-[1px] bg-white rounded-lg\
+        "w-9 ml:w-12 h-9 ml:h-12 absolute bottom-1 flex right-1 border-[1px] bg-white rounded-full\
         text-cPrimary shadow-md items-center justify-center text-lg ml:text-2xl hover:bg-cPrimary/10";
 
     return (
